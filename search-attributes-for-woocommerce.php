@@ -172,7 +172,7 @@ if ( isset( $wsatt_status ) && ! empty( $wsatt_status ) ) {
 				WHERE $wpdb->posts.post_type = 'product'
 				AND $wpdb->posts.post_status = 'publish'
 				AND $wpdb->term_taxonomy.taxonomy = '" . esc_sql( $attribute ) . "'
-				AND $wpdb->terms.name LIKE '%" . get_search_query() . "%')";
+				AND $wpdb->terms.name LIKE '%" . esc_sql( $wpdb->esc_like( get_search_query() ) ) . "%')";
 			}
 		}
 
